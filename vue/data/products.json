@@ -1,0 +1,27 @@
+{
+    "products": [{
+        "img": "https://cdn2.vectorstock.com/i/1000x1000/73/41/simple-bicycle-icon-black-lines-bike-drawing-on-vector-24577341.jpg",
+        "name": "Bicycle",
+        "info": [
+            ["Price", 160],
+            ["Color", "Red"],
+            ["Country", "Armenia"]
+        ]
+    }, {
+        "img": "https://images.crateandbarrel.com/is/image/Crate/Emi20x20PlwCvrSHS20",
+        "name": "Pillow",
+        "info": [
+            ["Price", 45],
+            ["Color", "Skin"],
+            ["Country", "Armenia"]
+        ]
+    }, {
+        "img": "",
+        "name": "Pen",
+        "info": [
+            ["Price", 0.5],
+            ["Color", "Blue"],
+            ["Country", "Armenia"]
+        ]
+    }]
+}

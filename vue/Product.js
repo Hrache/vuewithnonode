@@ -8,7 +8,7 @@ export default {
     <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center align-items-center">
         <img :src="product.img? product.img: 'https://www.ddexim.org/assets/images/img-dummy-product.jpg'" :alt="product.name" class="img-fluid" />
     </div>
-    <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 p-4">
+    <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
         <div class="h1 border-bottom pb-2">{{ product.name }}</div>
         <product-details-vue :info="product.info"></product-details-vue>
     </div>

@@ -1,6 +1,6 @@
 var dataURL = '/vue/data';
-
 let routus = {
+    mode: 'history',
     history: VueRouter.createWebHashHistory(),
     routes: [{
         path: '/home',
@@ -10,6 +10,10 @@ let routus = {
         },
         beforeEnter( to, from ) {
             $.post( dataURL + '/slides.json', {}, function( data, status ) {
+                Object.assign( to.matched[ 0 ].props.default.prop, data )
+            }, 'json' );
+
+            $.post( dataURL + '/articles.json', {}, function( data, status ) {
                 Object.assign( to.matched[ 0 ].props.default.prop, data )
             }, 'json' );
         },

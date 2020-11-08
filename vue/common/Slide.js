@@ -19,8 +19,7 @@ export default {
             <span class="sr-only">Next</span>
         </a>
     </div>
-</p>
-    `,
+</p>`,
     props: {
         slides: Object
     }

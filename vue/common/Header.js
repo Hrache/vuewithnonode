@@ -12,7 +12,7 @@ export default {
         <p class="page-title" v-html="pagetitle"></p>
     </div>
 </header>
-<welcomemodal-vue v-if="header && header.modalcontent" :content="header.modalcontent"></welcomemodal-vue>
+<welcomemodal-vue style="display: none;" v-if="header && header.modalcontent" :content="header.modalcontent"></welcomemodal-vue>
     `,
     props: {
         pagetitle: String,
@@ -34,6 +34,6 @@ export default {
         'welcomemodal-vue': WelcomeModal
     },
     mounted() {
-        $( '#welcomemodal' ).slideDown();
+        $( '#welcomemodal' ).fadeIn(1000);
     }
 }

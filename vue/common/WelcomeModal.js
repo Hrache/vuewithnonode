@@ -1,19 +1,35 @@
 export default {
     template: `
-<div class="modal-wrapper container d-flex align-items-center justify-content-center" id="welcomemodal">
+<transition enter-active-class="fade-in" leave-active-class="fade-out">
+<div v-if="showModal" class="modal-wrapper container d-flex align-items-center justify-content-center" id="welcomemodal">
     <article class="card border-0 rounded-0 shadow">
         <header class="card-header border-0 p-0 rounded-0">
             <button class="btn float-right btn-danger rounded-0" @click="close()">&#9932;</button>
         </header>
-        <div class="card-body d-flex align-items-center justify-content-center" v-html="content"></div>
+        <div v-html="content" class="card-body d-flex align-items-center justify-content-center"></div>
     </article>
-</div>`,
+</div>
+</transition>
+    `,
     props: {
         content: String
     },
+    data() {
+        return {
+            showClose: true
+        }
+    },
     methods: {
         close() {
-            $('#welcomemodal').slideUp().remove();
+            this.showClose = false;
+            setTimeout( function() {
+                $('#welcomemodal').remove();
+            }, 1000);
+        }
+    },
+    computed: {
+        showModal() {
+            return this.content && this.showClose? true: false
         }
     },
     beforeCreate() {

@@ -21,14 +21,14 @@ export default {
     template: `
 <header-vue :pagetitle="title" :header="prop.header"></header-vue>
 
-<section class="container-fluid p-0" v-if="prop && prop.slides">
+<section class="container-fluid p-0 m-0" v-if="prop && prop.slides">
     <slide-vue :slides="prop.slides"></slide-vue>
 </section>
 
 <p class="display-1 font-weight-bold">Cars</p>
 
 <grid-switcher-vue :items="prop.articles" v-slot:default="slotProps">
-    <articlelg-vue :article="slotProps.item" :showGridItem="slotProps.showItem"></articlelg-vue>
+    <articlelg-vue :article="slotProps.item"></articlelg-vue>
 </grid-switcher-vue>
-    `,
+    `
 }

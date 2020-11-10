@@ -1,7 +1,6 @@
 export default {
     template: `
-<transition enter-active-class="fade-in" leave-active-class="fade-out">
-<div v-if="showModal" class="modal-wrapper container d-flex align-items-center justify-content-center" id="welcomemodal">
+<div v-show="showModal" class="modal-wrapper d-flex align-items-center justify-content-center" id="welcomemodal">
     <article class="card border-0 rounded-0 shadow">
         <header class="card-header border-0 p-0 rounded-0">
             <button class="btn float-right btn-danger rounded-0" @click="close()">&#9932;</button>
@@ -9,27 +8,22 @@ export default {
         <div v-html="content" class="card-body d-flex align-items-center justify-content-center"></div>
     </article>
 </div>
-</transition>
     `,
     props: {
         content: String
     },
-    data() {
-        return {
-            showClose: true
-        }
-    },
     methods: {
         close() {
-            this.showClose = false;
-            setTimeout( function() {
-                $('#welcomemodal').remove();
-            }, 1000);
+            var v = this;
+            $( '#welcomemodal' ).fadeOut( 750, function() {
+                v.showModal = false;
+                $( this ).remove();
+            } );
         }
     },
-    computed: {
-        showModal() {
-            return this.content && this.showClose? true: false
+    data() {
+        return {
+            showModal: false
         }
     },
     beforeCreate() {
@@ -44,5 +38,9 @@ export default {
 }
 </style>
         ` );
+        $( '#welcomemodal' ).hide( 10 );
+    },
+    mounted() {
+        $( '#welcomemodal' ).fadeIn( 750 );
     }
 }

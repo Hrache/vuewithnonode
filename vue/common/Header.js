@@ -8,16 +8,12 @@ export default {
         <router-link to="/products" class="btn">Products</router-link>
         <router-link to="/aboutus" class="btn">About Us</router-link>
     </nav>
-    <div class="col-12 pt-4">
+    <div class="col-12 py-4">
         <p class="page-title" v-html="pagetitle"></p>
     </div>
 </header>
-<welcomemodal-vue style="display: none;" v-if="header && header.modalcontent" :content="header.modalcontent"></welcomemodal-vue>
+<welcomemodal-vue v-if="header && header.modalcontent" :content="header.modalcontent"></welcomemodal-vue>
     `,
-    props: {
-        pagetitle: String,
-        header: Object
-    },
     beforeCreate() {
         newResource( 'pageheader', document.head, `
 <style id="pageheader">
@@ -30,10 +26,11 @@ export default {
 </style>
         ` );
     },
+    props: {
+        pagetitle: String,
+        header: Object
+    },
     components: {
         'welcomemodal-vue': WelcomeModal
-    },
-    mounted() {
-        $( '#welcomemodal' ).fadeIn(1000);
     }
 }

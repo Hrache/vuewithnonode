@@ -1,6 +1,6 @@
+import { default as GridSwitcher } from './common/GridSwitcher.js';
 import { default as Header } from './common/Header.js';
 import { default as SingleProduct } from './partials/SingleProduct.js';
-import { default as GridSwitcher } from './partials/GridSwitcher.js';
 
 export default {
     template: `

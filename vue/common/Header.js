@@ -1,4 +1,4 @@
-import { default as WelcomeModal } from './WelcomeModal.js';
+import { default as FreeVueModal } from './FreeVueModal.js';
 
 export default {
     template: `
@@ -12,7 +12,7 @@ export default {
         <p class="page-title" v-html="pagetitle"></p>
     </div>
 </header>
-<welcomemodal-vue v-if="header && header.modalcontent" :content="header.modalcontent"></welcomemodal-vue>
+<freevuemodal-vue v-if="header && header.modalcontent" :content="header.modalcontent"></freevuemodal-vue>
     `,
     beforeCreate() {
         newResource( 'pageheader', document.head, `
@@ -31,6 +31,6 @@ export default {
         header: Object
     },
     components: {
-        'welcomemodal-vue': WelcomeModal
+        'freevuemodal-vue': FreeVueModal
     }
 }

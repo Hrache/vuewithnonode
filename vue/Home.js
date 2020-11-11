@@ -1,7 +1,7 @@
+import { default as GridSwitcher } from './common/GridSwitcher.js';
 import { default as Header } from './common/Header.js';
 import { default as Slide } from './common/Slide.js';
 import { default as ArticleLG } from './partials/ArticleLG.js';
-import { default as GridSwitcher } from './partials/GridSwitcher.js';
 
 export default {
     props: {

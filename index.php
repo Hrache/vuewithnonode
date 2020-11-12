@@ -1,3 +1,4 @@
+<?php require_once(__DIR__.'\\php\\init.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,9 +8,9 @@
 
         <title>Vue FE Projects</title>
 
-        <link href="css/transitions.css" rel="stylesheet" />
+        <link href="/css/transitions.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-        <script src="vue/core/helpers.js"></script>
+        <script src="/vue/core/helpers.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 

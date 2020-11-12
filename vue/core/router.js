@@ -1,4 +1,6 @@
-var dataURL = '/vue/data';
+var dataURL = '/vue/data',
+    baseUrl = location.origin;
+
 let routus = {
     mode: 'history',
     history: VueRouter.createWebHashHistory(),
@@ -40,6 +42,11 @@ let routus = {
         },
         props: {
             prop: Object
+        },
+        beforeEnter( to, from ) {
+            $.post( baseUrl + '/api/aboutus', {}, function( data, status ) {
+                Object.assign( to.matched[ 0 ].props.default.prop, { api: data.api } )
+            }, 'json' );
         }
     }]
 };

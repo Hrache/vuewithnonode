@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class RandomModel extends Model
+class Random extends Model
 {
     protected $table = 'random';
 }

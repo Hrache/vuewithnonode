@@ -5,10 +5,10 @@ export default {
     template: `
 <div id="homeSlider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li v-for="(slide, ind) in slides" :key="ind" data-target="#homeSlider" :data-slide-to="ind" :class="slide.active? 'active': ''" ></li>
+        <li v-for="( slide, ind ) in slides" :key="ind" data-target="#homeSlider" :data-slide-to="ind" :class="slide.active? 'active': ''" ></li>
     </ol>
     <div class="carousel-inner">
-        <div :class="['carousel-item', slide.active? 'active': '']" v-for="( slide, ind ) in slides" :key="ind">
+        <div :class="[ 'carousel-item', slide.active? 'active': '' ]" v-for="( slide, ind ) in slides" :key="ind">
             <img :src="'/vue/data/imgs/' + slide.img" class="d-block w-100" :alt="slide.alt? slide.alt: ''">
         </div>
     </div>

@@ -5,7 +5,7 @@ export default {
         <header class="container p-0">
             <button class="float-right btn btn-danger rounded-0" @click="close()">&#9932;</button>
         </header>
-        <div class="container d-flex align-items-center justify-content-center" v-html="content"></div>
+        <div class="container d-flex justify-content-center align-items-center" v-html="content"></div>
     </section>
 </div>
     `,

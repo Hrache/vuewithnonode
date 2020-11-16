@@ -1,4 +1,7 @@
 export default {
+    props: {
+        article: Object
+    },
     template:`
 <article class="card mb-4 border-0">
     <header class="card-header border-0 h2 font-weight-bold">{{ article.title }}</header>
@@ -9,8 +12,5 @@ export default {
         {{ article.txt }}
     </section>
 </article>
-    `,
-    props: {
-        article: Object
-    }
+    `
 }

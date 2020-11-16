@@ -1,4 +1,7 @@
 export default {
+    props: {
+        product: Object
+    },
     template: `
 <article class="container row mb-4">
     <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center align-items-center">
@@ -13,8 +16,5 @@ export default {
         <article v-else>No product info have been provided.</article>
     </div>
 </article>
-    `,
-    props: {
-        product: Object
-    }
+    `
 }

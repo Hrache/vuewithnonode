@@ -1,6 +1,6 @@
 export default {
     template: `
-<section v-show="items" class="container-fluid d-none d-md-block">
+<section v-show="items" class="d-none d-md-block">
     <span class="btn-group rounded-0 my-2">
         <span class="btn btn-secondary font-weight-bold rounded-0" @click="gridSwitch(1)">
             <img src="vue/imgs/grid-1-col.png" width="16" />
@@ -11,9 +11,11 @@ export default {
         <span class="btn btn-secondary font-weight-bold rounded-0 d-none d-lg-block d-xl-block" @click="gridSwitch(3)">
             <img src="vue/imgs/grid-3-col.png" width="16" />
         </span>
+<!--
         <span class="btn btn-secondary font-weight-bold rounded-0 d-none d-lg-block d-xl-block" @click="gridSwitch(4)">
             <img src="vue/imgs/grid-4-col.png" width="16" />
         </span>
+-->
     </span>
 </section>
 

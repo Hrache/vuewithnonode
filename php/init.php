@@ -1,20 +1,9 @@
 <?php
 
-if (!defined('root')) {
-    define('root', __DIR__);
-}
-
-if (!defined('vendor')) {
-    define('vendor', __DIR__.'\\vendor');
-}
-
-if (!defined('models')) {
-    define('models', __DIR__.'\\models');
-}
-
-if (!defined('api')) {
-    define('api', __DIR__.'\\api');
-}
+if (!defined('root')) define('root', __DIR__);
+if (!defined('vendor')) define('vendor', __DIR__.'\\vendor');
+if (!defined('models')) define('models', __DIR__.'\\models');
+if (!defined('api')) define('api', __DIR__.'\\api');
 
 require_once('helpers.php');
 

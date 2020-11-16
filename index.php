@@ -1,5 +1,5 @@
 <?php require_once(__DIR__.'\\php\\init.php'); ?>
-<!DOCTYPE html>
+<!DOCTYPE html />
 <html lang="en">
     <head>
 
@@ -9,22 +9,40 @@
         <title>Vue FE Projects</title>
 
         <link href="/css/transitions.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+        <script src="/js/jquery-3.5.1.min.js"></script>
+        <script>
+            var baseUrl = location.origin,
+                dataURL = '/vue/data',
+                message = { type: 'success', text: '' };
+        </script>
+
+        <script src="/js/vue.global.js"></script>
+        <script src="/js/vue-router.global.js"></script>
         <script src="/vue/core/helpers.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/vue-router@next"></script>
-
     </head>
+
     <body>
 
         <section id="app" class="container-fluid">
             <router-view></router-view>
         </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script>
+            
+        <?php $_SESSION['warning'] = "What is your fucking name, my name isn\'t your fname ?"; if (isset($_SESSION['success'])): ?>
+            message.text = '<?= is_array($_SESSION["success"])? implode("<br/>", $_SESSION["success"]): $_SESSION["success"] ?>';
+        <?php elseif (isset($_SESSION['danger'])): ?>
+            message.text = '<?= is_array($_SESSION["danger"])? implode("<br/>", $_SESSION["danger"]): $_SESSION["danger"] ?>';
+            message.type = 'danger';
+        <?php elseif (isset($_SESSION["warning"])): ?>
+            message.text = '<?= is_array($_SESSION["warning"])? implode("<br/>", $_SESSION["warning"]): $_SESSION["warning"] ?>';
+            message.type = 'warning';
+        <?php endif; ?>
+        </script>
         <script src='./vue/core/app.js' type="module"></script>
 
     </body>

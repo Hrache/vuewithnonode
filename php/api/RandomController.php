@@ -2,11 +2,11 @@
 
 class RandomController
 {
-    function aboutus()
+    static function aboutus()
     {
-        require_once(models.'\\RandomModel.php');
+        require_once(models.'\\Random.php');
 
-        $toSend = RandomModel::where('slug', 'aboutus')->get()->toArray();
+        $toSend = Random::where('slug', 'aboutus')->get()->toArray();
 
         return json_encode([ "api" => array_shift( $toSend)]);
     }

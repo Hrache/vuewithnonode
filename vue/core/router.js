@@ -25,7 +25,7 @@ let routus = {
     }, {
         path: '/products',
         component: function() {
-            return import( '../Product.js' );
+            return import( '../Products.js' );
         },
         beforeEnter( to, from ) {
             $.post( dataURL + '/products.json', {}, function( data, status ) {

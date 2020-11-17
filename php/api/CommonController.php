@@ -57,6 +57,6 @@ class CommonController
 
         $_SESSION['success'] = "Tables have been created successfully.";
 
-        header('location: '.$GLOBALS['settings']['main_url'].'/home');
+        header('location: '.$GLOBALS['settings']['main_url'].'/');
     }
 }

@@ -1,6 +1,3 @@
-var dataURL = '/vue/data',
-    baseUrl = location.origin;
-
 let routus = {
     mode: 'history',
     history: VueRouter.createWebHashHistory(),
@@ -10,15 +7,6 @@ let routus = {
         component: function() {
             return import( '../Home.js' );
         },
-        beforeEnter( to, from ) {
-            $.post( dataURL + '/slides.json', {}, function( data, status ) {
-                Object.assign( to.matched[ 0 ].props.default.prop, data )
-            }, 'json' );
-
-            $.post( dataURL + '/articles.json', {}, function( data, status ) {
-                Object.assign( to.matched[ 0 ].props.default.prop, data )
-            }, 'json' );
-        },
         props: {
             prop: Object
         }
@@ -26,11 +14,6 @@ let routus = {
         path: '/products',
         component: function() {
             return import( '../Products.js' );
-        },
-        beforeEnter( to, from ) {
-            $.post( dataURL + '/products.json', {}, function( data, status ) {
-                Object.assign( to.matched[ 0 ].props.default.prop, data )
-            }, 'json' );
         },
         props: {
             prop: Object
@@ -42,11 +25,6 @@ let routus = {
         },
         props: {
             prop: Object
-        },
-        beforeEnter( to, from ) {
-            $.post( baseUrl + '/api/aboutus', {}, function( data, status ) {
-                Object.assign( to.matched[ 0 ].props.default.prop, { api: data.api } )
-            }, 'json' );
         }
     }]
 };

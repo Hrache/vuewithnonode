@@ -1,4 +1,4 @@
-import { default as Header } from './common/Header.js';
+import { default as Header } from './partials/Header.js';
 
 export default {
     template: `
@@ -17,8 +17,5 @@ export default {
         content() {
             return ( this.prop.api && this.prop.api.content )? this.prop.api.content: "Default text";
         }
-    },
-    mounted() {
-        
     }
 }

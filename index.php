@@ -33,7 +33,7 @@
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script>
             
-        <?php $_SESSION['warning'] = "What is your fucking name, my name isn\'t your fname ?"; if (isset($_SESSION['success'])): ?>
+        <?php if (isset($_SESSION['success'])): ?>
             message.text = '<?= is_array($_SESSION["success"])? implode("<br/>", $_SESSION["success"]): $_SESSION["success"] ?>';
         <?php elseif (isset($_SESSION['danger'])): ?>
             message.text = '<?= is_array($_SESSION["danger"])? implode("<br/>", $_SESSION["danger"]): $_SESSION["danger"] ?>';

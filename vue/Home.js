@@ -10,11 +10,11 @@ export default {
     template: `
 <header-vue :pagetitle="title" :header="prop.header"></header-vue>
 
-<section class="container-fluid p-0 m-0" v-if="api && api.slides">
+<section class="p-0 m-0" v-if="api && api.slides">
     <slide-vue :slides="api.slides"></slide-vue>
 </section>
 
-<section class="container">
+<section class="container p-0">
     <p class="display-1 font-weight-bold">Cars</p>
 
     <gridswitcher-vue :items="api.articles" v-slot:default="slotProps">

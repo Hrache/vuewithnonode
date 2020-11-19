@@ -26,7 +26,7 @@
 
     <body>
 
-        <section id="app" class="container-fluid">
+        <section id="app" class="container-fluid py-0 px-0">
             <router-view></router-view>
         </section>
 

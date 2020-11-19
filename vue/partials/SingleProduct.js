@@ -15,6 +15,5 @@ export default {
         </div>
         <article v-else>No product info have been provided.</article>
     </div>
-</article>
-    `
+</article>`
 }

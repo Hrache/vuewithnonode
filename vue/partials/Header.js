@@ -6,29 +6,25 @@ export default {
         pagetitle: String,
         header: Object
     },
-    template: `
-<header class="row">
-    <nav class="col-12 nav-top btn-group p-2">
-        <router-link to="/home" class="btn">Home</router-link>
-        <router-link to="/products" class="btn">Products</router-link>
-        <router-link to="/aboutus" class="btn">About Us</router-link>
-    </nav>
-    <div class="col-12 py-4">
-        <p class="page-title" v-html="pagetitle"></p>
-    </div>
-</header>
-<freevuemodal-vue v-if="header && header.modalcontent" :content="header.modalcontent"></freevuemodal-vue>
-<vuemessage-vue v-if="msg.text" :prop="msg"></vuemessage-vue>
-    `,
     components: {
-        'freevuemodal-vue': FreeVueModal,
-        'vuemessage-vue': VueMessage
+        'FreeVueModal': FreeVueModal,
+        'VueMessage': VueMessage
     },
-    data() {
-        return {
-             msg: window.message
-        }
-    },
+    template: `
+<nav class="container-fluid nav-top btn-group p-0">
+    <router-link to="/home" class="btn">Home</router-link>
+    <router-link to="/products" class="btn">Products</router-link>
+    <router-link to="/aboutus" class="btn">About Us</router-link>
+    <router-link to="/account" class="btn btn-success">My Account</router-link>
+</nav>
+
+<div class="container p-4">
+    <p class="page-title" v-html="pagetitle"></p>
+</div>
+
+<FreeVueModal v-if="header && header.modalcontent" :content="header.modalcontent" />
+<VueMessage v-if="msg.text" :prop="msg" />
+    `,
     beforeCreate() {
         newResource( 'pageheader', document.head, `
 <style id="pageheader">
@@ -46,5 +42,10 @@ export default {
     .nav-top > a:active { background-color: #0f0f0f; color: #f0f0f0; }
 </style>
         ` );
+    },
+    data() {
+        return {
+             msg: window.message
+        }
     }
 }

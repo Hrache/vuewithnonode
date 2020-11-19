@@ -2,27 +2,28 @@ import { default as Header } from './partials/Header.js';
 
 export default {
     template: `
-<header-vue pagetitle="About Us" :header="prop.header"></header-vue>
-<section class="container-fluid">
-    {{ content }}
+<HeaderVue pagetitle="About Us" :header="prop.header" />
+
+<section class="p-3">
+{{ api.content }}
 </section>
     `,
     components: {
-        'header-vue': Header
+        'HeaderVue': Header
     },
     props: {
         prop: Object
     },
-    computed: {
-        content() {
-            return ( this.prop.api && this.prop.api.content )? this.prop.api.content: "Default text";
+    data() {
+        return {
+            api: {}
         }
     },
-    beforeCreate() {
+    mounted() {
         var vue = this;
 
         $.post( baseUrl + '/api/aboutus', {}, function( data, status ) {
-            Object.assign( vue.prop, data )
+            vue.api = data.api
         }, 'json' );
     }
 }

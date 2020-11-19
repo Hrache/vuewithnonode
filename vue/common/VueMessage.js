@@ -3,10 +3,10 @@ export default {
         prop: Object
     },
     template: `
-        <article id="vuemessage" :class="'shadow rounded vue-message-popup alert alert-' + prop.type + ' border border-' + prop.type">
-            <span class="float-right" style="z-index: 4;" aria-hidden="true" @click="closePopup()">&times;</span>
-            <main v-html="prop.text" class="pt-2"></main>
-        </article>
+<article id="vuemessage" :class="'shadow rounded vue-message-popup alert alert-' + prop.type + ' border border-' + prop.type">
+    <span class="float-right" style="z-index: 4;" aria-hidden="true" @click="closePopup()">&times;</span>
+    <main v-html="prop.text" class="pt-2"></main>
+</article>
     `,
     beforeCreate() {
         if ( !this.prop || !this.prop.type || [ 'danger', 'success', 'warning' ].indexOf( this.prop.type ) < 0 ) {
@@ -22,8 +22,7 @@ export default {
     z-index: 3; cursor: pointer;
     max-width: 280px; min-width: 192px;
 }
-</style>
-        ` );
+</style>` );
 
         $( '#vuemessage' ).hide( 10 );
     },

@@ -26,6 +26,15 @@ let routus = {
         props: {
             prop: Object
         }
+    }, {
+        path: '/account',
+        alias: [ '/login', '/register', '/signin', '/signup' ],
+        component: function() {
+            return import( '../Account.js' );
+        },
+        props: {
+            prop: Object
+        }
     }]
 };
 

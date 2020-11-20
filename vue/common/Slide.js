@@ -1,6 +1,7 @@
 export default {
     props: {
-        slides: Object
+        slides: Array,
+        imgpath: String
     },
     template: `
 <div id="homeSlider" class="carousel slide" data-ride="carousel">
@@ -8,8 +9,8 @@ export default {
         <li v-for="( slide, ind ) in slides" :key="ind" data-target="#homeSlider" :data-slide-to="ind" :class="slide.active? 'active': ''" ></li>
     </ol>
     <div class="carousel-inner">
-        <div :class="[ 'carousel-item', slide.active? 'active': '' ]" v-for="( slide, ind ) in slides" :key="ind">
-            <img :src="'/vue/data/imgs/' + slide.img" class="d-block w-100" :alt="slide.alt? slide.alt: ''">
+        <div v-for="( slide, ind ) in slides" :class="[ 'carousel-item', slide.active? 'active': '' ]" :key="ind">
+            <img :src=" imgpath + slide.img " class="d-block w-100" :alt=" slide.alt? slide.alt: '' " />
         </div>
     </div>
     <a class="carousel-control-prev" href="#homeSlider" role="button" data-slide="prev">
@@ -20,6 +21,5 @@ export default {
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
-    `
+</div>`
 }

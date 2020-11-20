@@ -1,17 +1,4 @@
 export default {
-    template: `
-<div id="freevuemodal" v-show="showModal" class="modal-wrapper d-flex align-items-center justify-content-center">
-    <section class="container bg-white p-0 pb-2 m-0">
-        <header class="container p-0">
-            <button class="float-right btn btn-danger rounded-0" @click="close()">&#9932;</button>
-        </header>
-        <div class="container d-flex justify-content-center align-items-center" v-html="content"></div>
-    </section>
-</div>
-    `,
-    props: {
-        content: String
-    },
     methods: {
         close() {
             var v = this;
@@ -25,6 +12,19 @@ export default {
         return {
             showModal: false
         }
+    },
+    template: `
+<div id="freevuemodal" v-show="showModal" class="modal-wrapper d-flex align-items-center justify-content-center">
+    <section class="container bg-white p-0 pb-2 m-0">
+        <header class="container p-0">
+            <button class="float-right btn btn-danger rounded-0" @click="close()">&#9932;</button>
+        </header>
+        <div class="container d-flex justify-content-center align-items-center" v-html="content"></div>
+    </section>
+</div>
+    `,
+    props: {
+        content: String
     },
     beforeCreate() {
         newResource( 'freevuemodalcss', document.head, `

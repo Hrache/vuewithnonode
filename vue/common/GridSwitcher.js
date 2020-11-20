@@ -3,17 +3,17 @@ export default {
 <section v-show="items" class="d-none d-md-block">
     <span class="btn-group rounded-0 my-2">
         <span class="btn btn-secondary font-weight-bold rounded-0" @click="gridSwitch(1)">
-            <img src="vue/imgs/grid-1-col.png" width="16" />
+            <img :src=" imgpath + 'imgs/grid-1-col.png' " width="16" />
         </span>
         <span class="btn btn-secondary font-weight-bold rounded-0" @click="gridSwitch(2)">
-            <img src="vue/imgs/grid-2-col.png" width="16" />
+            <img :src=" imgpath + 'imgs/grid-2-col.png' " width="16" />
         </span>
         <span class="btn btn-secondary font-weight-bold rounded-0 d-none d-lg-block d-xl-block" @click="gridSwitch(3)">
-            <img src="vue/imgs/grid-3-col.png" width="16" />
+            <img :src=" imgpath + 'imgs/grid-3-col.png' " width="16" />
         </span>
 <!--
         <span class="btn btn-secondary font-weight-bold rounded-0 d-none d-lg-block d-xl-block" @click="gridSwitch(4)">
-            <img src="vue/imgs/grid-4-col.png" width="16" />
+            <img :src=" imgpath + 'imgs/grid-4-col.png' " width="16" />
         </span>
 -->
     </span>
@@ -28,7 +28,8 @@ export default {
 <article v-else class="alert alert-info">No items to place in the grid switcher.</article>
     `,
     props: {
-        items: Object
+        items: Object,
+        imgpath: String
     },
     methods: {
         gridSwitch( cols ) {

@@ -8,25 +8,25 @@ export default {
         prop: Object
     },
     template: `
-<header-vue :pagetitle="title" :header="prop.header"></header-vue>
+<HeaderVue :pagetitle="title" :header="prop.header" />
 
 <section class="p-0 m-0" v-if="api && api.slides">
-    <slide-vue :slides="api.slides"></slide-vue>
+    <SlideVue imgpath="/vue/data/imgs/" :slides="api.slides" />
 </section>
 
 <section class="container p-0">
     <p class="display-1 font-weight-bold">Cars</p>
 
-    <gridswitcher-vue :items="api.articles" v-slot:default="slotProps">
+    <gridswitcher-vue imgpath="/vue/common/" :items="api.articles" v-slot:default="slotProps">
         <articlelg-vue :article="slotProps.item"></articlelg-vue>
     </gridswitcher-vue>    
 </section>
     `,
     components: {
-        'header-vue': Header,
-        'slide-vue': Slide,
+        'HeaderVue': Header,
         'articlelg-vue': ArticleLG,
-        'gridswitcher-vue': GridSwitcher
+        'gridswitcher-vue': GridSwitcher,
+        'SlideVue': Slide
     },
     data() {
         return {

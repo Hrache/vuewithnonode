@@ -10,7 +10,7 @@ export default {
 <header-vue pagetitle="Products" :header="prop.header"></header-vue>
 
 <section class="container p-1">
-    <gridswitcher-vue :items="api.products" v-slot:default="slotProps">
+    <gridswitcher-vue imgpath="/vue/common/" :items="api.products" v-slot:default="slotProps">
         <singleproduct-vue :product="slotProps.item"></singleproduct-vue>
     </gridswitcher-vue>          
 </section>

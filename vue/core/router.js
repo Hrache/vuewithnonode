@@ -35,6 +35,14 @@ let routus = {
         props: {
             prop: Object
         }
+    }, {
+        path: '/error',
+        component: function() {
+            return import( '../Error.js' );
+        },
+        props: {
+            prop: Object
+        }
     }]
 };
 

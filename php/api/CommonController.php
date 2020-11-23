@@ -7,6 +7,18 @@ class CommonController
 {
     static function installDatabase()
     {
+        // Accounts
+        if (!Manager::schema()->hasTable('accounts')) {
+            Manager::schema()->create('accounts', function (Blueprint $tbl) {
+                $tbl->mediumIncrements('id');
+                $tbl->string('email')->nullable(false)->unique();
+                $tbl->string('password', 25)->nullable(false);
+                $tbl->string('name')->nullable(false);
+                $tbl->string('surname')->nullable(false);
+                $tbl->timestamps();
+            });
+        }
+
         // Random
         if (!Manager::schema()->hasTable('random')) {
             Manager::schema()->create('random', function (Blueprint $table) {

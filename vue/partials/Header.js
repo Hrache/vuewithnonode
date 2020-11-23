@@ -22,7 +22,10 @@ export default {
     <p class="page-title" v-html="pagetitle"></p>
 </div>
 
+<!--
 <FreeVueModal v-if="header && header.modalcontent" :content="header.modalcontent" />
+-->
+
 <VueMessage v-if="msg.text" :prop="msg" />
     `,
     beforeCreate() {
@@ -42,10 +45,11 @@ export default {
     .nav-top > a:active { background-color: #0f0f0f; color: #f0f0f0; }
 </style>
         ` );
+        this.msg = window.message;
     },
     data() {
         return {
-             msg: window.message
+             msg: ''
         }
     }
 }

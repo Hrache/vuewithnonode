@@ -34,9 +34,9 @@
         <script>
         <?php if (isset($_SESSION['success'])): ?>
             message.text = '<?= is_array($_SESSION["success"])? implode("<br/>", $_SESSION["success"]): $_SESSION["success"] ?>';
-        <?php elseif (isset($_SESSION['danger'])): ?>
-            message.text = '<?= is_array($_SESSION["danger"])? implode("<br/>", $_SESSION["danger"]): $_SESSION["danger"] ?>';
-            message.type = 'danger';
+        <?php elseif (isset($_SESSION['fail'])): ?>
+            message.text = '<?= is_array($_SESSION["fail"])? implode("<br/>", $_SESSION["fail"]): $_SESSION["fail"] ?>';
+            message.type = 'fail';
         <?php elseif (isset($_SESSION["warning"])): ?>
             message.text = '<?= is_array($_SESSION["warning"])? implode("<br/>", $_SESSION["warning"]): $_SESSION["warning"] ?>';
             message.type = 'warning';

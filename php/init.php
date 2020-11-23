@@ -1,15 +1,15 @@
 <?php
 
+// global constants
 if (!defined('root')) define('root', __DIR__);
 if (!defined('vendor')) define('vendor', __DIR__.'\\vendor');
 if (!defined('models')) define('models', __DIR__.'\\models');
 if (!defined('api')) define('api', __DIR__.'\\api');
 
-require_once('helpers.php');
-
 // calling the vendor autoload
 require_once(vendor.'\\autoload.php');
 
+// database
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
@@ -29,12 +29,37 @@ $GLOBALS['settings'] = [
     ]
 ];
 
-$db = new Manager();
+// calling helper functions
+require_once('helpers.php');
 
-$db->addConnection($GLOBALS['settings']['maria']);
-$db->setEventDispatcher(new Dispatcher(new Container));
-$db->setAsGlobal();
-$db->bootEloquent();
+session_start();
 
-// calling the routes file
-require_once('routes.php');
+// URL
+if (!isset($_SESSION['url'])) {
+    $_SESSION['url'] = [
+        'current' => $_SERVER['REQUEST_URI'],
+        'back' => $_SERVER['REQUEST_URI']
+    ];
+}
+
+if ($_SESSION['url']['back'] !== $_SESSION['url']['current']) {
+    $_SESSION['url']['back'] = $_SESSION['url']['current'];
+}
+
+$_SESSION['url']['current'] = $_SERVER['REQUEST_URI'];
+
+try {
+    $db = new Manager();
+
+    $db->addConnection(settings('maria'));
+    $db->setEventDispatcher(new Dispatcher(new Container));
+    $db->setAsGlobal();
+    $db->bootEloquent();
+
+    // calling the routes file
+    require_once('routes.php');
+}
+catch (Exception $e) {
+    $_SESSION['exception'] = $e->getTraceAsString();
+    header('Location: ' . settings('main_url') . '/error');
+}

@@ -8,23 +8,24 @@ export default {
     </header>
 
     <main class="card-body border-0 p-2">
+
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" />
-            <small id="emailHelp" class="form-text text-muted">Some text about the email.</small>
+            <label for="login_email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="" class="form-control" />
+            <small class="form-text text-muted">Some text about the email.</small>
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" />
-            <small id="passwordHelp" class="form-text text-muted">Some text about the password.</small>
+            <label for="login_password">Password</label>
+            <input type="password" id="loginpassword" name="loginpassword" autocomplete="" class="form-control" />
+            <small class="form-text text-muted">Some text about the password.</small>
         </div>
+
     </main>
         
     <footer class="card-footer border-0 bg-white">
-        <input type="submit" class="btn btn-primary float-right" />
+        <button type="submit" class="btn btn-primary float-right">Login</button>
     </footer>
     
-</form>
-    `
+</form>`
 }

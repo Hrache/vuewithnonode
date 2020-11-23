@@ -9,7 +9,7 @@ export default {
 </article>
     `,
     beforeCreate() {
-        if ( !this.prop || !this.prop.type || [ 'danger', 'success', 'warning' ].indexOf( this.prop.type ) < 0 ) {
+        if ( !this.prop || !this.prop.type || [ 'fail', 'success', 'warning' ].indexOf( this.prop.type ) < 0 ) {
             throw new Error( "Incorrect message type " + this.prop.type + "!" );
             return false;
         }

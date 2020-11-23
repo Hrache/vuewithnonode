@@ -1,4 +1,4 @@
-<?php require_once(__DIR__.'\\php\\init.php'); ?>
+<?php /* require_once(__DIR__.'\\php\\init.php'); */ ?>
 <!DOCTYPE html />
 <html lang="en">
     <head>
@@ -26,7 +26,7 @@
 
     <body>
 
-        <section id="app" class="container-fluid py-0 px-0">
+        <section id="app" class="container-fluid p-0">
             <router-view></router-view>
         </section>
 

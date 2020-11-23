@@ -10,11 +10,11 @@ export default {
     template: `
 <HeaderVue :pagetitle="title" :header="prop.header" />
 
-<section class="p-0 m-0" v-if="api && api.slides">
+<section v-if="api && api.slides">
     <SlideVue imgpath="/vue/data/imgs/" :slides="api.slides" />
 </section>
 
-<section class="container p-0">
+<section class="container">
     <p class="display-1 font-weight-bold">Cars</p>
 
     <gridswitcher-vue imgpath="/vue/common/" :items="api.articles" v-slot:default="slotProps">

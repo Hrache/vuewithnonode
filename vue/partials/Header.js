@@ -11,21 +11,18 @@ export default {
         'VueMessage': VueMessage
     },
     template: `
-<nav class="container-fluid nav-top btn-group p-0">
+<nav class="container-fluid nav-top btn-group">
     <router-link to="/home" class="btn">Home</router-link>
     <router-link to="/products" class="btn">Products</router-link>
     <router-link to="/aboutus" class="btn">About Us</router-link>
     <router-link to="/account" class="btn btn-success">My Account</router-link>
 </nav>
 
-<div class="container p-4">
+<div class="container py-4">
     <p class="page-title" v-html="pagetitle"></p>
 </div>
 
-<!--
-<FreeVueModal v-if="header && header.modalcontent" :content="header.modalcontent" />
--->
-
+<!-- <FreeVueModal v-if="header && header.modalcontent" :content="header.modalcontent" /> -->
 <VueMessage v-if="msg.text" :prop="msg" />
     `,
     beforeCreate() {

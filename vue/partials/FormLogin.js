@@ -7,7 +7,7 @@ export default {
         <span class="h2">Login</span>
     </header>
 
-    <main class="card-body border-0 p-2">
+    <main class="card-body border-0 p-0">
 
         <div class="form-group">
             <label for="login_email">Email</label>

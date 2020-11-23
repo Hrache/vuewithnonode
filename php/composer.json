@@ -1,7 +1,0 @@
-{
-    "require": {
-        "illuminate/database": "^8.14",
-        "illuminate/events": "^8.14",
-        "rakit/validation": "^1.4"
-    }
-}

@@ -9,7 +9,7 @@ export default {
     template: `
 <header-vue pagetitle="Products" :header="prop.header"></header-vue>
 
-<section class="container p-1">
+<section class="container-md container-lg container-xl">
     <gridswitcher-vue imgpath="/vue/common/" :items="api.products" v-slot:default="slotProps">
         <singleproduct-vue :product="slotProps.item"></singleproduct-vue>
     </gridswitcher-vue>          

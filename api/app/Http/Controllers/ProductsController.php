@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
-class TokenController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,23 +17,10 @@ class TokenController extends Controller
         //
     }
 
-    /**
-     * Generates token for each api request
-     */
-    public function token(Request $request)
+    public function index()
     {
-        $request->session()->regenerateToken();
-
-        $_token = $request->session()->token();
-
-        return $_token;
-    }
-
-    /**
-     * Checks whether the token is correct or no
-     */
-    private function checkToken(Request &$request): bool
-    {
-        return ($request->has('_token') && $request->session()->token() === $request->_token);
+        return response()->json([
+            'products' => Product::withProducts()->paginate(20)
+        ]);
     }
 }

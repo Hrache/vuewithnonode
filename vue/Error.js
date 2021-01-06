@@ -8,15 +8,15 @@ export default {
         HeaderVue: Header
     },
     template: `
-<HeaderVue pagetitle="Error" :header="prop.header" />
+        <HeaderVue pagetitle="Error" :header="prop.header" />
 
-<main class="container d-flex justify-content-center">
-    <article class="card">
-        <section class="card-body">
-            {{ content }}
-        </section>
-    </article>
-</main>
+        <main class="container d-flex justify-content-center">
+            <article class="card">
+                <section class="card-body">
+                    {{ content }}
+                </section>
+            </article>
+        </main>
     `,
     data() {
         return {

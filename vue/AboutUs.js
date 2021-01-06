@@ -2,11 +2,11 @@ import { default as Header } from './partials/Header.js';
 
 export default {
     template: `
-<HeaderVue pagetitle="About Us" :header="prop.header" />
+        <HeaderVue pagetitle="About Us" :header="prop.header" />
 
-<section class="p-3">
-{{ api.content }}
-</section>
+        <section class="p-3">
+        {{ api.content }}
+        </section>
     `,
     components: {
         'HeaderVue': Header
@@ -22,7 +22,7 @@ export default {
     mounted() {
         var vue = this;
 
-        $.post( baseUrl + '/api/aboutus', {}, function( data, status ) {
+        $.post( apiurl + '/aboutus', {}, function( data, status ) {
             vue.api = data.api
         }, 'json' );
     }

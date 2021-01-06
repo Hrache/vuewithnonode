@@ -35,6 +35,15 @@ class Vuetest extends Migration
             });
         }
 
+        if (!Schema::hasTable('users')) {
+            Schema::create('users', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->char('email')->unique();
+                $table->string('password', 35)->nullable(false);
+                $table->timestamps();
+            });
+        }
+
         // Products
         if (!Schema::hasTable('products')) {
             Schema::create('products', function (Blueprint $table) {
@@ -42,6 +51,8 @@ class Vuetest extends Migration
                 $table->string('image')->unique()->nullable();
                 $table->double('price', 8, 2)->unique()->nullable(false);
                 $table->string('name')->unique()->nullable(false);
+                $table->unsignedBigInteger('user_id')->nullable(false);
+                $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
                 $table->timestamps();
             });
         }
@@ -79,6 +90,11 @@ class Vuetest extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('random');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('products');
+        Schema::dropIfExists('countries');
+        Schema::dropIfExists('productoptions');
     }
 }

@@ -17,6 +17,10 @@ let routus = {
         },
         props: {
             prop: Object
+        },
+        beforeEnter: (to, from, next) => {
+
+
         }
     }, {
         path: '/aboutus',
@@ -48,8 +52,25 @@ let routus = {
 
 const router = new VueRouter.createRouter( routus );
 
-router.beforeEach( ( to, from, next ) => {
+router.beforeEach( function( to, from, next ) {
+
+
+    /**
+     * Getting the token from the server through api
+     * */
+    $.post( dataURL + '/token', {
+        '_token': _token
+    }, function( data, sts ) {
+
+        console.log( data );
+        _token = data;
+    } );
+
+    /**
+     * Generating main modal content
+     * */
     $.post( dataURL + '/modalcontent.json', {}, function( data, status ) {
+
         Object.assign( to.matched[ 0 ].props.default.prop, { header: data } )
     }, 'json' )
 

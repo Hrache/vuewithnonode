@@ -8,19 +8,19 @@ export default {
         prop: Object
     },
     template: `
-<HeaderVue :pagetitle="title" :header="prop.header" />
+        <HeaderVue :pagetitle="title" :header="prop.header" />
 
-<section v-if="api && api.slides">
-    <SlideVue imgpath="/vue/data/imgs/" :slides="api.slides" />
-</section>
+        <section v-if="api && api.slides">
+            <SlideVue imgpath="/vue/data/imgs/" :slides="api.slides" />
+        </section>
 
-<section class="container">
-    <p class="display-1 font-weight-bold">Cars</p>
+        <section class="container">
+            <p class="display-1 font-weight-bold">Cars</p>
 
-    <gridswitcher-vue imgpath="/vue/common/" :items="api.articles" v-slot:default="slotProps">
-        <articlelg-vue :article="slotProps.item"></articlelg-vue>
-    </gridswitcher-vue>    
-</section>
+            <gridswitcher-vue imgpath="/vue/common/" :items="api.articles" v-slot:default="slotProps">
+                <articlelg-vue :article="slotProps.item"></articlelg-vue>
+            </gridswitcher-vue>
+        </section>
     `,
     components: {
         'HeaderVue': Header,
@@ -37,11 +37,13 @@ export default {
     beforeCreate() {
         var vue = this;
 
-        $.post( dataURL + '/slides.json', {}, function( data, status ) {
+        $.post( dataURL + '/slides.json', {}, function( data, status )
+        {
             Object.assign( vue.api, data )
         }, 'json' );
 
-        $.post( dataURL + '/articles.json', {}, function( data, status ) {
+        $.post( dataURL + '/articles.json', {}, function( data, status )
+        {
             Object.assign( vue.api, data )
         }, 'json' );
     }
